@@ -19,9 +19,9 @@ router.get("/", async(req, res) =>{
 
 router.post("/", async (req, res) => {
     try {
-        const { name, password } = req.body;
+        const { name, last_name, adress, phone_number, birthdate, password  } = req.body;
 
-        await user.create({ name:name, password:password});
+        await user.create(req.body);
 
         res.status(200).json("Usuario creado con exito😁😁")
     } catch (error) {
